@@ -22,7 +22,7 @@ public class Checklist {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Length(max = 50)
+    @Length(max = 45)
     private String name;
 
     @CreationTimestamp

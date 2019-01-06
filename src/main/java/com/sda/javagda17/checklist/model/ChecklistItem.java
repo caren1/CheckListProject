@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-
 @Entity
 @Getter
 @Setter
@@ -25,14 +24,14 @@ public class ChecklistItem {
     @ManyToOne(fetch = FetchType.EAGER)
     private Checklist checklist;
 
+    private LocalDateTime itemDateCompleted;
+
     private ItemStatus itemStatus;
 
     @Column(unique = true)
     private String name;
 
-    private LocalDateTime itemDateCompleted;
-
-    @Length(max = 300)
+    @Length(max = 200)
     private String content;
 
     @OneToMany(fetch = FetchType.EAGER)

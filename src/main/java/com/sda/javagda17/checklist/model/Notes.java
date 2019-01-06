@@ -19,7 +19,7 @@ public class Notes {
     @GeneratedValue
     private Long id;
 
-    @Length(max = 500)
+    @Length(max = 45)
     private String noteContent;
 
     @ManyToOne(fetch = FetchType.EAGER)

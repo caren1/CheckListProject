@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="template :: scripts_header"/>
+    <meta charset="UTF-8">
+    <title>To-Do list! - Checklist Form</title>
+</head>
+<body>
+<th:block th:include="template :: navigator"/>
+<h2>Please provide the name for the checklist:</h2>
+
+<h2>Checklist Form: </h2>
+<div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <form th:href="@{/checklistform}" method="post" th:object="${formObject}">
+            <div class="form-group">
+                <label for="name">Checklist name:</label>
+                <input type="text" class="form-control" name="name" id="name" th:field="*{name}"
+                       aria-describedby="checklistNameHelp"
+                       placeholder="checklistName">
+            </div>
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<th:block th:include="template :: scripts_footer"/>
+</body>
+</html>
