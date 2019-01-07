@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="template :: scripts_header"/>
+    <meta charset="UTF-8">
+    <title>Welcome your To-Do list! - Archived Checklists</title>
+</head>
+<body>
+<th:block th:include="template :: navigator"/>
+<th:block th:include="template :: messageBox"/>
+
+<h2> Here are all of the archived checklists: </h2>
+
+<div class="container">
+
+    <div class="row header">
+        <div class="col-1">Id.</div>
+        <div class="col-3">Name</div>
+    </div>
+    <div class="row table-row" th:each="checklist,i : ${archived}">
+        <div class="col-1" th:text="${checklist.id}"></div>
+        <div class="col-3" th:text="${checklist.name}"></div>
+        <div class="col-4 ">
+        </div>
+    </div>
+</div>
+
+
+<th:block th:include="template :: scripts_footer"/>
+</body>
+</html>

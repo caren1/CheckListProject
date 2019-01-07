@@ -58,5 +58,13 @@ public class ChecklistController {
 
         return "checklist/list";
     }
+
+    @GetMapping("/archived")
+    public String getArchivedChecklists(Model model){
+        List<Checklist> listOfArchivedChecklists = checklistService.getArchivedChecklists();
+
+        model.addAttribute("archived", listOfArchivedChecklists);
+        return "checklist/archived";
+    }
 }
 
