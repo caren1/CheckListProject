@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -48,4 +49,14 @@ public class ChecklistController {
 
         return "checklist/checklistForm";
     }
+
+    @GetMapping("/list")
+    public String getChecklists(Model model) {
+        List<Checklist> listOfChecklists = checklistService.getAllChecklists();
+
+        model.addAttribute("checklists", listOfChecklists);
+
+        return "checklist/list";
+    }
 }
+
