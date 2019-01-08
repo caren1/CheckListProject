@@ -17,18 +17,17 @@
 
     <div class="row header">
         <div class="col-1">Id.</div>
-        <div class="col-1">Name</div>
-        <div class="col-4">Date Created</div>
-        <div class="col-4">Is archived?</div>
+        <div class="col-3">Name</div>
     </div>
-
     <div class="row table-row" th:each="checklist,i : ${checklists}">
         <div class="col-1" th:text="${checklist.id}"></div>
-        <div class="col-1" th:text="${checklist.name}"></div>
-        <div class="col-4" th:text="${checklist.dateCreated}"></div>
-        <div class="col-4" th:text="${checklist.archived}"></div>
+        <div class="col-3" th:text="${checklist.name}"></div>
+        <div class="col-3" th:text="${checklist.dateCreated}"></div>
+        <div class="col-3" th:text="${checklist.dateCompleted}"></div>
+        <div class="col-3" th:text="${checklist.archived}"></div>
 
-        <a class="col-2" th:href="@{'/edit/' + ${checklist.id}}">Edit</a>
+        <div class="col-4 ">
+        </div>
     </div>
 </div>
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="template :: scripts_header"/>
+    <meta charset="UTF-8">
+    <title>To-Do list! - Edit Form</title>
+</head>
+<body>
+<th:block th:include="template :: navigator"/>
+<th:block th:include="template :: messageBox"/>
+
+<h2>What would you like to edit?:</h2>
+<h2>Checklist edit form: </h2>
+
+<div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <form th:action="@{'/edit/' + ${checklistToEdit.getId()}}" method="post" th:object="${checklistToEdit}">
+            <input type="hidden" th:field="*{id}" th:value="*{id}">
+            <input type="hidden" th:field="*{dateCreated}" th:value="*{dateCreated}">
+            <input type="hidden" th:field="*{dateCompleted}" th:value="*{dateCompleted}">
+            <input type="hidden" th:field="*{checklistItemSet}">
+
+            <input type="text" class="form-control" name="checklistName" id="name" th:field="*{name}"
+                   aria-describedby="name"
+                   placeholder="name">
+
+            <!--<select type="checkbox" class="form-control" name="checklistOptions" id="checklistStatus"-->
+            <!--th:field="${checklistOptions}" aria-describedby="name"-->
+
+            <!--placeholder="checklistStatus">-->
+            <!--<option th:each="option : ${checklistOptions}" th:value="${option}" th:text="${option}"></option>-->
+            <!--</select>-->
+
+            <input type="checkbox" class="form-control" name="checklistChoice" id="checklistChoice"
+                   th:field="${checklistChoice}" value="true" aria-describedby="checklistChoice"
+                   placeholder="checklistChoice">
+
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<th:block th:include="template :: scripts_footer"/>
+</body>
+</html>

@@ -52,4 +52,12 @@ public class ChecklistService {
         }
         return archivedChecklists;
     }
+
+    public Optional<Checklist> getChecklistById(Long id) {
+        return checkListRepository.findById(id);
+    }
+
+    public void update(Checklist checklist) {
+        checkListRepository.save(checklist);
+    }
 }
